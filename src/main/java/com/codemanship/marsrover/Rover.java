@@ -1,5 +1,8 @@
 package com.codemanship.marsrover;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +25,10 @@ public class Rover {
     }
 
     public void go(String instructions) {
+
+        Logger logger = LogManager.getLogger(Rover.class);
+        logger.info("Executing instructions: " + instructions);
+
         instructions.chars().forEach((instruction) -> {
             if(instruction == 'R'){
                 String[] compass = {"N", "E", "S", "W"};
